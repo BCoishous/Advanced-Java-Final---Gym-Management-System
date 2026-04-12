@@ -1,6 +1,8 @@
+com/gym/service/UserService.class
 com/gym/util/DBConnection.class
 com/gym/model/Member.class
 com/gym/model/Trainer.class
-com/gym/model/User.class
 com/gym/model/Admin.class
+com/gym/dao/UserDAO.class
 com/gym/Main.class
+com/gym/model/User.class
