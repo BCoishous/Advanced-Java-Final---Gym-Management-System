@@ -1,2 +1,6 @@
 /Users/brandoncoish/Advanced-Java-Final---Gym-Management-System/src/main/java/com/gym/Main.java
+/Users/brandoncoish/Advanced-Java-Final---Gym-Management-System/src/main/java/com/gym/model/Admin.java
+/Users/brandoncoish/Advanced-Java-Final---Gym-Management-System/src/main/java/com/gym/model/Member.java
+/Users/brandoncoish/Advanced-Java-Final---Gym-Management-System/src/main/java/com/gym/model/Trainer.java
+/Users/brandoncoish/Advanced-Java-Final---Gym-Management-System/src/main/java/com/gym/model/User.java
 /Users/brandoncoish/Advanced-Java-Final---Gym-Management-System/src/main/java/com/gym/util/DBConnection.java
