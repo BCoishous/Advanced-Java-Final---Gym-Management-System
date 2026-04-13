@@ -4,5 +4,7 @@ com/gym/model/Member.class
 com/gym/model/Trainer.class
 com/gym/model/Admin.class
 com/gym/dao/UserDAO.class
+com/gym/util/GymLogger$1.class
 com/gym/Main.class
+com/gym/util/GymLogger.class
 com/gym/model/User.class
