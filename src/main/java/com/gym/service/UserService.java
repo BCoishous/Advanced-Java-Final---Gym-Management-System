@@ -52,6 +52,7 @@ public class UserService {
         if (!BCrypt.checkpw(password, user.getPassword())) {
             System.out.println("Incorrect password.");
             logger.warning("Login failed - incorrect password for user: " + username);
+            return null;
         }
 
         logger.info("User logged in: " + username + " with role: " + user.getRole());

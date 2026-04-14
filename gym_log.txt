@@ -1,0 +1,54 @@
+[2026-04-13 13:30:57] INFO: Application started
+[2026-04-13 13:31:31] WARNING: Login failed - incorrect password for user: admin1
+[2026-04-13 13:31:31] INFO: User logged in: admin1 with role: ADMIN
+[2026-04-13 13:32:19] INFO: Admin logged out: admin1
+[2026-04-13 13:32:24] INFO: Application exited
+[2026-04-13 13:32:24] INFO: Application shutdown
+[2026-04-13 13:32:53] INFO: Application started
+[2026-04-13 13:33:44] INFO: New user registered: admin1 with role: ADMIN
+[2026-04-13 13:33:58] INFO: User logged in: admin1 with role: ADMIN
+[2026-04-13 13:34:29] INFO: Admin requested all users list
+[2026-04-13 13:34:58] INFO: Admin logged out: admin1
+[2026-04-13 13:35:39] INFO: New user registered: testuser with role: MEMBER
+[2026-04-13 13:35:52] INFO: User logged in: testuser with role: MEMBER
+[2026-04-13 13:36:05] INFO: Application exited
+[2026-04-13 13:36:05] INFO: Application shutdown
+[2026-04-13 13:36:34] INFO: Application started
+[2026-04-13 13:36:47] WARNING: Login failed - incorrect password for user: admin1
+[2026-04-13 13:36:47] INFO: User logged in: admin1 with role: ADMIN
+[2026-04-13 13:36:50] INFO: Admin requested all users list
+[2026-04-13 13:36:54] INFO: Admin requested all users list
+[2026-04-13 13:37:04] INFO: User deleted with ID: 5
+[2026-04-13 13:37:06] INFO: Admin requested all users list
+[2026-04-14 09:44:47] INFO: Application started
+[2026-04-14 09:45:00] INFO: User logged in: admin1 with role: ADMIN
+[2026-04-14 09:45:08] INFO: Admin requested all memberships
+[2026-04-14 09:45:12] INFO: Admin requested total revenue
+[2026-04-14 09:45:12] INFO: Admin viewed total revenue: $0.0
+[2026-04-14 09:45:20] INFO: Admin requested total revenue
+[2026-04-14 09:45:20] INFO: Admin viewed total revenue: $0.0
+[2026-04-14 09:45:25] INFO: Admin logged out: admin1
+[2026-04-14 09:46:06] INFO: New user registered: testuser with role: MEMBER
+[2026-04-14 09:46:14] INFO: User logged in: testuser with role: MEMBER
+[2026-04-14 09:49:23] INFO: Application exited
+[2026-04-14 09:49:23] INFO: Application shutdown
+[2026-04-14 09:49:27] INFO: Application started
+[2026-04-14 09:49:37] WARNING: Login failed - incorrect password for user: testuser
+[2026-04-14 09:49:37] INFO: User logged in: testuser with role: MEMBER
+[2026-04-14 09:50:30] INFO: Application exited
+[2026-04-14 09:50:30] INFO: Application shutdown
+[2026-04-14 09:56:07] INFO: Application started
+[2026-04-14 09:56:23] WARNING: Login failed - incorrect password for user: testuser
+[2026-04-14 09:56:38] WARNING: Login failed - incorrect password for user: testuser
+[2026-04-14 09:57:21] INFO: New user registered: testuser3 with role: MEMBER
+[2026-04-14 09:57:30] INFO: User logged in: testuser3 with role: MEMBER
+[2026-04-14 09:58:14] INFO: Membership purchased - type: Annual by userId: 7
+[2026-04-14 09:58:23] INFO: Fetching memberships for userId: 7
+[2026-04-14 09:59:13] WARNING: Login failed - incorrect password for user: admin1
+[2026-04-14 09:59:22] INFO: User logged in: admin1 with role: ADMIN
+[2026-04-14 09:59:28] INFO: Admin requested all memberships
+[2026-04-14 09:59:33] INFO: Admin requested total revenue
+[2026-04-14 09:59:33] INFO: Admin viewed total revenue: $499.99
+[2026-04-14 10:00:22] INFO: Admin logged out: admin1
+[2026-04-14 10:00:31] INFO: Application exited
+[2026-04-14 10:00:31] INFO: Application shutdown

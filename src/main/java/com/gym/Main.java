@@ -1,14 +1,17 @@
 package com.gym;
 
+import com.gym.ui.MainMenu;
 import com.gym.util.DBConnection;
-import java.sql.Connection;
+import com.gym.util.GymLogger;
 
 public class Main {
     public static void main(String[] args) {
-         Connection conn = DBConnection.getConnection();
-        if (conn != null) {
-            System.out.println("Connection test passed!");
-        }
+        GymLogger logger = GymLogger.getInstance();
+        logger.info("Application started");
+
+        new MainMenu().display();
+
         DBConnection.closeConnection();
+        logger.info("Application shutdown");
     }
 }
