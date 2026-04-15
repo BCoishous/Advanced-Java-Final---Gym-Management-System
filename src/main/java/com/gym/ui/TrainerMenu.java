@@ -8,11 +8,13 @@ public class TrainerMenu {
     private Scanner scanner;
     private Trainer trainer;
     private MembershipMenu membershipMenu;
+    private WorkoutClassMenu workoutClassMenu;
 
-    public TrainerMenu(Scanner scanner, Trainer trainer, MembershipMenu membershipMenu) {
+    public TrainerMenu(Scanner scanner, Trainer trainer, MembershipMenu membershipMenu, WorkoutClassMenu workoutClassMenu) {
         this.scanner = scanner;
         this.trainer = trainer;
         this.membershipMenu = membershipMenu;
+        this.workoutClassMenu = workoutClassMenu;
     }
 
     public void display() {
@@ -23,7 +25,7 @@ public class TrainerMenu {
             String input = scanner.nextLine().trim();
             switch (input) {
                 case "1":
-                    System.out.println("View classes coming soon!");
+                    workoutClassMenu.display();
                     break;
                 case "2":
                     membershipMenu.purchaseMembership();
