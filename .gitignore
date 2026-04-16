@@ -1,0 +1,4 @@
+target/
+*.class
+*.log
+gym_log.txt

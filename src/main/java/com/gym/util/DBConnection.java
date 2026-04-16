@@ -8,7 +8,7 @@ public class DBConnection {
 
     // Your database connection details
     private static final String URL = "jdbc:postgresql://localhost:5432/gymdb";
-    private static final String USER = "postgres"; // had to Change this to my database username -Sammie
+    private static final String USER = "brandoncoish"; // local username - update to match your machine
     private static final String PASSWORD = "";
 
     // The single shared connection
