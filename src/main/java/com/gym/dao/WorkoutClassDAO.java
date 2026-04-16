@@ -10,17 +10,18 @@ import java.util.List;
 public class WorkoutClassDAO {
 
     public boolean addWorkoutClass(WorkoutClass wc) {
-       String sql = "INSERT INTO workout_classes (class_type, class_description, trainer_id, class_date, class_time, capacity) VALUES (?, ?, ?, ?, ?, ?)";
+       String sql = "INSERT INTO workout_classes (workout_class_id, class_type, class_description, trainer_id, class_date, class_time, capacity) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         try {
             PreparedStatement stmt = DBConnection.getConnection().prepareStatement(sql);
 
-            stmt.setString(1, wc.getClassType());
-            stmt.setString(2, wc.getDescription());
-            stmt.setInt(3, wc.getTrainerId());
-            stmt.setString(4, wc.getClassDate());
-            stmt.setString(5, wc.getClassTime());
-            stmt.setInt(6, wc.getCapacity());
+            stmt.setInt(1, wc.getId());
+            stmt.setString(2, wc.getClassType());
+            stmt.setString(3, wc.getDescription());
+            stmt.setInt(4, wc.getTrainerId());
+            stmt.setDate(5, java.sql.Date.valueOf(wc.getClassDate()));
+            stmt.setString(6, wc.getClassTime());
+            stmt.setInt(7, wc.getCapacity());
 
             stmt.executeUpdate();
             stmt.close();
@@ -33,7 +34,7 @@ public class WorkoutClassDAO {
     }
 
     public boolean updateWorkoutClass(WorkoutClass wc) {
-        String sql = "UPDATE workout_classes SET class_type = ?, class_description = ?, trainer_id = ?, class_date = ?, class_time = ?, capacity = ? WHERE id = ?";
+        String sql = "UPDATE workout_classes SET class_type = ?, class_description = ?, trainer_id = ?, class_date = ?, class_time = ?, capacity = ? WHERE workout_class_id = ?";
 
         try {
             PreparedStatement stmt = DBConnection.getConnection().prepareStatement(sql);
@@ -41,7 +42,7 @@ public class WorkoutClassDAO {
             stmt.setString(1, wc.getClassType());
             stmt.setString(2, wc.getDescription());
             stmt.setInt(3, wc.getTrainerId());
-            stmt.setString(4, wc.getClassDate());
+            stmt.setDate(4, java.sql.Date.valueOf(wc.getClassDate()));
             stmt.setString(5, wc.getClassTime());
             stmt.setInt(6, wc.getCapacity());
             stmt.setInt(7, wc.getId());
@@ -56,12 +57,12 @@ public class WorkoutClassDAO {
         }
     }
 
-    public boolean deleteWorkoutClass(int id) {
-        String sql = "DELETE FROM workout_classes WHERE id = ?";
+    public boolean deleteWorkoutClass(int workout_class_id) {
+        String sql = "DELETE FROM workout_classes WHERE workout_class_id = ?";
 
         try {
             PreparedStatement stmt = DBConnection.getConnection().prepareStatement(sql);
-            stmt.setInt(1, id);
+            stmt.setInt(1, workout_class_id);
             stmt.executeUpdate();
             stmt.close();
             return true;
@@ -82,7 +83,7 @@ public class WorkoutClassDAO {
 
             while (rs.next()) {
                 WorkoutClass wc = new WorkoutClass(
-                        rs.getInt("id"),
+                        rs.getInt("workout_class_id"),
                         rs.getString("class_type"),
                         rs.getString("class_description"),
                         rs.getInt("trainer_id"),
@@ -103,18 +104,18 @@ public class WorkoutClassDAO {
         return list;
     }
 
-    public WorkoutClass getWorkoutClassById(int id) {
-        String sql = "SELECT * FROM workout_classes WHERE id = ?";
+    public WorkoutClass getWorkoutClassById(int workout_class_id) {
+        String sql = "SELECT * FROM workout_classes WHERE workout_class_id = ?";
 
         try {
             PreparedStatement stmt = DBConnection.getConnection().prepareStatement(sql);
-            stmt.setInt(1, id);
+            stmt.setInt(1, workout_class_id);
 
             ResultSet rs = stmt.executeQuery();
 
             if (rs.next()) {
                 WorkoutClass wc = new WorkoutClass(
-                        rs.getInt("id"),
+                        rs.getInt("workout_class_id"),
                         rs.getString("class_type"),
                         rs.getString("class_description"),
                         rs.getInt("trainer_id"),

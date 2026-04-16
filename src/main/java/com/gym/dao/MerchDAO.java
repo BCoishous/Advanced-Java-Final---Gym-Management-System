@@ -10,16 +10,17 @@ import java.util.List;
 public class MerchDAO {
     // CRUD operations for GymMerch
     public boolean addMerch(GymMerch merch) {
-        String sql = "INSERT INTO gym_merch (merch_name, merch_type, merch_price, quantity_in_stock) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO gym_merch (merch_id, merch_name, merch_type, merch_price, quantity_in_stock) VALUES (?, ?, ?, ?, ?)";
 
 
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            stmt.setString(1, merch.getName());
-            stmt.setString(2, merch.getType());
-            stmt.setDouble(3, merch.getPrice());
-            stmt.setInt(4, merch.getStock());
+            stmt.setInt(1, merch.getId());
+            stmt.setString(2, merch.getName());
+            stmt.setString(3, merch.getType());
+            stmt.setDouble(4, merch.getPrice());
+            stmt.setInt(5, merch.getStock());
 
             return stmt.executeUpdate() > 0;
 
@@ -30,14 +31,14 @@ public class MerchDAO {
     }
 
     // update prices for merch
-    public boolean updatePrice(int id, double newPrice) {
-        String sql = "UPDATE gym_merch SET price = ? WHERE id = ?";
+    public boolean updatePrice(int merch_id, double newPrice) {
+        String sql = "UPDATE gym_merch SET price = ? WHERE merch_id = ?";
 
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setDouble(1, newPrice);
-            stmt.setInt(2, id);
+            stmt.setInt(2, merch_id);
 
             return stmt.executeUpdate() > 0;
 
@@ -48,14 +49,14 @@ public class MerchDAO {
     }
 
     // update stock for merch
-    public boolean updateStock(int id, int newStock) {
-        String sql = "UPDATE gym_merch SET stock = ? WHERE id = ?";
+    public boolean updateStock(int merch_id, int newStock) {
+        String sql = "UPDATE gym_merch SET stock = ? WHERE merch_id = ?";
 
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setInt(1, newStock);
-            stmt.setInt(2, id);
+            stmt.setInt(2, merch_id);
 
             return stmt.executeUpdate() > 0;
 
@@ -76,11 +77,11 @@ public class MerchDAO {
 
             while (rs.next()) {
                 merchList.add(new GymMerch(
-                                rs.getInt("id"),
-                                rs.getString("name"),
-                                rs.getString("type"),
-                                rs.getDouble("price"),
-                                rs.getInt("stock")
+                                rs.getInt("merch_id"),
+                                rs.getString("merch_name"),
+                                rs.getString("merch_type"),
+                                rs.getDouble("merch_price"),
+                                rs.getInt("quantity_in_stock")
                 ));
             }
 

@@ -8,8 +8,8 @@ public class DBConnection {
 
     // Your database connection details
     private static final String URL = "jdbc:postgresql://localhost:5432/gymdb";
-    private static final String USER = "brandoncoish";
-    private static final String PASSWORD = "";
+    private static final String USER = "postgres";
+    private static final String PASSWORD = "schooldatabase";
 
     // The single shared connection
     private static Connection connection = null;
