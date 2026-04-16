@@ -1,5 +1,6 @@
 package com.gym.ui;
 
+import com.gym.model.Trainer;
 import com.gym.model.WorkoutClass;
 import com.gym.service.WorkoutClassService;
 
@@ -10,11 +11,13 @@ public class WorkoutClassMenu {
 
  private final Scanner scanner;
     private final WorkoutClassService workoutClassService;
+    private final Trainer trainer;
 
-    public WorkoutClassMenu(Scanner scanner) {
+    public WorkoutClassMenu(Scanner scanner, Trainer trainer, WorkoutClassService workoutClassService) {
         this.scanner = scanner;
-        this.workoutClassService = new WorkoutClassService();
-    }
+        this.trainer = trainer;
+        this.workoutClassService = workoutClassService;
+    };
 
     // displays the menu for the workout classes
     public void display() {
@@ -66,8 +69,7 @@ public class WorkoutClassMenu {
     System.out.print("Class Description: ");
     String description = scanner.nextLine();
 
-    System.out.print("Trainer ID: ");
-    int trainerId = Integer.parseInt(scanner.nextLine());
+    int trainerId = trainer.getUserId(); 
 
     System.out.print("Class Date (YYYY-MM-DD): ");
     String classDate = scanner.nextLine();

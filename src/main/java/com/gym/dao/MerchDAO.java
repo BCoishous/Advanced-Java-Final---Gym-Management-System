@@ -8,10 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MerchDAO {
-    // CRUD operations for GymMerch
+
+    // ADD MERCH
     public boolean addMerch(GymMerch merch) {
         String sql = "INSERT INTO gym_merch (merch_id, merch_name, merch_type, merch_price, quantity_in_stock) VALUES (?, ?, ?, ?, ?)";
-
 
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -30,9 +30,9 @@ public class MerchDAO {
         }
     }
 
-    // update prices for merch
+    // UPDATE PRICE
     public boolean updatePrice(int merch_id, double newPrice) {
-        String sql = "UPDATE gym_merch SET price = ? WHERE merch_id = ?";
+        String sql = "UPDATE gym_merch SET merch_price = ? WHERE merch_id = ?";
 
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -48,9 +48,9 @@ public class MerchDAO {
         }
     }
 
-    // update stock for merch
+    // UPDATE STOCK
     public boolean updateStock(int merch_id, int newStock) {
-        String sql = "UPDATE gym_merch SET stock = ? WHERE merch_id = ?";
+        String sql = "UPDATE gym_merch SET quantity_in_stock = ? WHERE merch_id = ?";
 
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -66,7 +66,7 @@ public class MerchDAO {
         }
     }
 
-    // list merch items
+    // LIST MERCH
     public List<GymMerch> getAllMerch() {
         List<GymMerch> merchList = new ArrayList<>();
         String sql = "SELECT * FROM gym_merch";
@@ -77,11 +77,11 @@ public class MerchDAO {
 
             while (rs.next()) {
                 merchList.add(new GymMerch(
-                                rs.getInt("merch_id"),
-                                rs.getString("merch_name"),
-                                rs.getString("merch_type"),
-                                rs.getDouble("merch_price"),
-                                rs.getInt("quantity_in_stock")
+                        rs.getInt("merch_id"),
+                        rs.getString("merch_name"),
+                        rs.getString("merch_type"),
+                        rs.getDouble("merch_price"),
+                        rs.getInt("quantity_in_stock")
                 ));
             }
 
@@ -92,9 +92,9 @@ public class MerchDAO {
         return merchList;
     }
 
-    // calculate total stock value
+    // TOTAL STOCK VALUE
     public double getTotalStockValue() {
-        String sql = "SELECT SUM(price * stock) AS total_value FROM gym_merch";
+        String sql = "SELECT SUM(merch_price * quantity_in_stock) AS total_value FROM gym_merch";
 
         try (Connection conn = DBConnection.getConnection();
              Statement stmt = conn.createStatement();

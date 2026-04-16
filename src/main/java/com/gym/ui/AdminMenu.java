@@ -4,8 +4,10 @@ import com.gym.model.Admin;
 import com.gym.model.Membership;
 import com.gym.model.User;
 import com.gym.service.MembershipService;
+import com.gym.service.MerchService;
 import com.gym.service.UserService;
 import com.gym.util.GymLogger;
+
 
 import java.util.List;
 import java.util.Scanner;
@@ -18,9 +20,13 @@ public class AdminMenu {
     private MembershipService membershipService = new MembershipService();
     private GymLogger logger = GymLogger.getInstance();
 
+    private MerchService merchService = new MerchService();
+    private MerchMenu merchMenu;
+
     public AdminMenu(Scanner scanner, Admin admin) {
         this.scanner = scanner;
         this.admin = admin;
+        this.merchMenu = new MerchMenu(merchService);
     }
 
     public void display() {
@@ -40,10 +46,13 @@ public class AdminMenu {
                 case "3":
                     viewAllMemberships();
                     break;
-                case "4":
-                    viewTotalRevenue();
+                    case "4":
+                    merchMenu.displayForAdmin();
                     break;
                 case "5":
+                    viewTotalRevenue();
+                    break;
+                case "6":
                     System.out.println("Logging out...");
                     logger.info("Admin logged out: " + admin.getUsername());
                     running = false;

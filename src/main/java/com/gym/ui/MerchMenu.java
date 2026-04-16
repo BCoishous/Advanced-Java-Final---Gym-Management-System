@@ -8,13 +8,12 @@ import java.util.Scanner;
 
 public class MerchMenu {
 
-    private final Scanner scanner;
+    private final Scanner scanner = new Scanner(System.in);
     private final MerchService merchService;
 
     // Constructor
-    public MerchMenu(Scanner scanner) {
-        this.scanner = scanner;
-        this.merchService = new MerchService();
+    public MerchMenu(MerchService merchService) {
+        this.merchService = merchService;
     }
 
     // admin menu 
