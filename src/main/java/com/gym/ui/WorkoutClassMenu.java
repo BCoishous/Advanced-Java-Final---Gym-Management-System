@@ -60,24 +60,32 @@ public class WorkoutClassMenu {
 
     // allows adding to the classes
     private void addClass() {
-        System.out.print("Class name: ");
-        String name = scanner.nextLine();
-        System.out.print("Trainer name: ");
-        String trainer = scanner.nextLine();
-        System.out.print("Day of week: ");
-        String day = scanner.nextLine();
-        System.out.print("Time slot (e.g. 18:00-19:00): ");
-        String time = scanner.nextLine();
-        System.out.print("Capacity: ");
-        int capacity = Integer.parseInt(scanner.nextLine());
+    System.out.print("Class Type: ");
+    String classType = scanner.nextLine();
 
-        WorkoutClass wc = new WorkoutClass(name, trainer, day, time, capacity);
-        if (workoutClassService.addWorkoutClass(wc)) {
-            System.out.println("Workout class added successfully!");
-        } else {
-            System.out.println("Failed to add workout class.");
-        }
+    System.out.print("Class Description: ");
+    String description = scanner.nextLine();
+
+    System.out.print("Trainer ID: ");
+    int trainerId = Integer.parseInt(scanner.nextLine());
+
+    System.out.print("Class Date (YYYY-MM-DD): ");
+    String classDate = scanner.nextLine();
+
+    System.out.print("Class Time (HH:MM): ");
+    String classTime = scanner.nextLine();
+
+    System.out.print("Capacity: ");
+    int capacity = Integer.parseInt(scanner.nextLine());
+
+    WorkoutClass wc = new WorkoutClass(classType, description, trainerId, classDate, classTime, capacity);
+
+    if (workoutClassService.addWorkoutClass(wc)) {
+        System.out.println("Workout class added successfully!");
+    } else {
+        System.out.println("Failed to add workout class.");
     }
+}   
 
     // allows user to update the class
     private void updateClass() {
@@ -90,21 +98,25 @@ public class WorkoutClassMenu {
             return;
         }
 
-        System.out.print("New name (" + existing.getName() + "): ");
-        String name = scanner.nextLine();
-        if (!name.isBlank()) existing.setName(name);
+        System.out.print("New class type (" + existing.getClassType() + "): ");
+        String classType = scanner.nextLine();
+        if (!classType.isBlank()) existing.setClassType(classType);
 
-        System.out.print("New trainer (" + existing.getTrainerName() + "): ");
-        String trainer = scanner.nextLine();
-        if (!trainer.isBlank()) existing.setTrainerName(trainer);
+        System.out.print("New description (" + existing.getDescription() + "): ");
+        String description = scanner.nextLine();
+        if (!description.isBlank()) existing.setDescription(description);
 
-        System.out.print("New day (" + existing.getDayOfWeek() + "): ");
-        String day = scanner.nextLine();
-        if (!day.isBlank()) existing.setDayOfWeek(day);
+        System.out.print("New trainer ID (" + existing.getTrainerId() + "): ");
+        String trainerId = scanner.nextLine();
+        if (!trainerId.isBlank()) existing.setTrainerId(Integer.parseInt(trainerId));
 
-        System.out.print("New time (" + existing.getTimeSlot() + "): ");
-        String time = scanner.nextLine();
-        if (!time.isBlank()) existing.setTimeSlot(time);
+        System.out.print("New class date (" + existing.getClassDate() + ") [YYYY-MM-DD]: ");
+        String classDate = scanner.nextLine();
+        if (!classDate.isBlank()) existing.setClassDate(classDate);
+
+        System.out.print("New class time (" + existing.getClassTime() + ") [HH:MM]: ");
+        String classTime = scanner.nextLine();
+        if (!classTime.isBlank()) existing.setClassTime(classTime);
 
         System.out.print("New capacity (" + existing.getCapacity() + "): ");
         String cap = scanner.nextLine();
@@ -115,7 +127,7 @@ public class WorkoutClassMenu {
         } else {
             System.out.println("Failed to update workout class.");
         }
-    }
+    };
 
     // allows to delete the classes
     private void deleteClass() {

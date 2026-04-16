@@ -4,6 +4,7 @@ import com.gym.model.Member;
 import java.util.Scanner;
 
 import com.gym.ui.WorkoutClassMenu;
+import com.gym.ui.MembershipMenu;
 
 public class MemberMenu {
 
@@ -11,12 +12,14 @@ public class MemberMenu {
     private Member member;
     private MembershipMenu membershipMenu;
     private WorkoutClassMenu workoutClassMenu;
+    private MerchMenu merchMenu;
 
-    public MemberMenu(Scanner scanner, Member member, MembershipMenu membershipMenu , WorkoutClassMenu workoutClassMenu) {
+    public MemberMenu(Scanner scanner, Member member, MembershipMenu membershipMenu , WorkoutClassMenu workoutClassMenu, MerchMenu merchMenu) {
         this.scanner = scanner;
         this.member = member;
         this.membershipMenu = membershipMenu;
         this.workoutClassMenu = workoutClassMenu;
+        this.merchMenu = merchMenu;
     }
 
     public void display() {
@@ -36,7 +39,7 @@ public class MemberMenu {
                     membershipMenu.viewMyMemberships();
                     break;
                 case "4":
-                    System.out.println("View merchandise coming soon!");
+                    merchMenu.displayForMemberOrTrainer();
                     break;
                 case "5":
                     System.out.println("Logging out...");

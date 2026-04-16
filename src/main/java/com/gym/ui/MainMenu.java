@@ -92,13 +92,15 @@ public class MainMenu {
         } else if (user instanceof Trainer) {
             MembershipMenu membershipMenu = new MembershipMenu(scanner, user);
             WorkoutClassMenu workoutClassMenu = new WorkoutClassMenu(scanner);
+            MerchMenu merchMenu = new MerchMenu(scanner);
 
-            new TrainerMenu(scanner, (Trainer) user, membershipMenu, workoutClassMenu).display();
+            new TrainerMenu(scanner, (Trainer) user, membershipMenu, workoutClassMenu, merchMenu).display();
         } else if (user instanceof Member) {
             MembershipMenu membershipMenu = new MembershipMenu(scanner, user);
             WorkoutClassMenu workoutClassMenu = new WorkoutClassMenu(scanner);
+            MerchMenu merchMenu = new MerchMenu(scanner);
             
-            new MemberMenu(scanner, (Member) user, membershipMenu, workoutClassMenu).display();
+            new MemberMenu(scanner, (Member) user, membershipMenu, workoutClassMenu, merchMenu).display();
         }
     }
 }

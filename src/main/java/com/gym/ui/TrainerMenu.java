@@ -3,18 +3,24 @@ package com.gym.ui;
 import com.gym.model.Trainer;
 import java.util.Scanner;
 
+import com.gym.ui.MerchMenu;
+
+
 public class TrainerMenu {
 
     private Scanner scanner;
     private Trainer trainer;
     private MembershipMenu membershipMenu;
     private WorkoutClassMenu workoutClassMenu;
+    private MerchMenu merchMenu;
 
-    public TrainerMenu(Scanner scanner, Trainer trainer, MembershipMenu membershipMenu, WorkoutClassMenu workoutClassMenu) {
+
+    public TrainerMenu(Scanner scanner, Trainer trainer, MembershipMenu membershipMenu, WorkoutClassMenu workoutClassMenu, MerchMenu merchMenu) {
         this.scanner = scanner;
         this.trainer = trainer;
         this.membershipMenu = membershipMenu;
         this.workoutClassMenu = workoutClassMenu;
+        this.merchMenu = merchMenu;
     }
 
     public void display() {
@@ -31,7 +37,7 @@ public class TrainerMenu {
                     membershipMenu.purchaseMembership();
                     break;
                 case "3":
-                    System.out.println("View merchandise coming soon!");
+                    merchMenu.displayForMemberOrTrainer();
                     break;
                 case "4":
                     System.out.println("Logging out...");
