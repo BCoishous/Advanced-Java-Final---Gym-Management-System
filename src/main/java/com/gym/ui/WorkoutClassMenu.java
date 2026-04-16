@@ -46,7 +46,7 @@ public class WorkoutClassMenu {
     }
 
     // displays the classes
-    private void viewClasses1() {
+    public void viewClasses1() {
         List<WorkoutClass> classes = workoutClassService.getAllWorkoutClasses();
         if (classes.isEmpty()) {
             System.out.println("No workout classes found.");
@@ -76,8 +76,7 @@ public class WorkoutClassMenu {
             System.out.println("Workout class added successfully!");
         } else {
             System.out.println("Failed to add workout class.");
-}
-
+        }
     }
 
     // allows user to update the class

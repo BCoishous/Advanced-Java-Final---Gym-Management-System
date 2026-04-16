@@ -96,7 +96,9 @@ public class MainMenu {
             new TrainerMenu(scanner, (Trainer) user, membershipMenu, workoutClassMenu).display();
         } else if (user instanceof Member) {
             MembershipMenu membershipMenu = new MembershipMenu(scanner, user);
-            new MemberMenu(scanner, (Member) user, membershipMenu).display();
+            WorkoutClassMenu workoutClassMenu = new WorkoutClassMenu(scanner);
+            
+            new MemberMenu(scanner, (Member) user, membershipMenu, workoutClassMenu).display();
         }
     }
 }

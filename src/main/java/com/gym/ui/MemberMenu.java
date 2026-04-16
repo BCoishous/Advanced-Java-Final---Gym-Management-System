@@ -3,16 +3,20 @@ package com.gym.ui;
 import com.gym.model.Member;
 import java.util.Scanner;
 
+import com.gym.ui.WorkoutClassMenu;
+
 public class MemberMenu {
 
     private Scanner scanner;
     private Member member;
     private MembershipMenu membershipMenu;
+    private WorkoutClassMenu workoutClassMenu;
 
-    public MemberMenu(Scanner scanner, Member member, MembershipMenu membershipMenu) {
+    public MemberMenu(Scanner scanner, Member member, MembershipMenu membershipMenu , WorkoutClassMenu workoutClassMenu) {
         this.scanner = scanner;
         this.member = member;
         this.membershipMenu = membershipMenu;
+        this.workoutClassMenu = workoutClassMenu;
     }
 
     public void display() {
@@ -23,7 +27,7 @@ public class MemberMenu {
             String input = scanner.nextLine().trim();
             switch (input) {
                 case "1":
-                    System.out.println("Browse classes coming soon!");
+                    workoutClassMenu.viewClasses1();
                     break;
                 case "2":
                     membershipMenu.purchaseMembership();
