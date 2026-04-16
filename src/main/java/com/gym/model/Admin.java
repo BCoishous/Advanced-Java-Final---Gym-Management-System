@@ -11,7 +11,8 @@ public class Admin extends User {
         System.out.println("1. View all users");
         System.out.println("2. Delete a user");
         System.out.println("3. View all memberships");
-        System.out.println("4. View total revenue");
-        System.out.println("5. Logout");
+        System.out.println("4. View all merchandise");
+        System.out.println("5. View total revenue");
+        System.out.println("6. Logout");
     }
 }

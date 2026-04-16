@@ -1,14 +1,15 @@
 package com.gym.ui;
 
+import com.gym.dao.WorkoutClassDAO;
 import com.gym.model.Admin;
 import com.gym.model.Member;
 import com.gym.model.Trainer;
 import com.gym.model.User;
+import com.gym.service.MerchService;
 import com.gym.service.UserService;
+import com.gym.service.WorkoutClassService;
 import com.gym.util.GymLogger;
-import com.gym.ui.MembershipMenu;
-import com.gym.ui.TrainerMenu;
-import com.gym.ui.MemberMenu;
+
 
 import java.util.Scanner;
 
@@ -17,6 +18,8 @@ public class MainMenu {
     private Scanner scanner = new Scanner(System.in);
     private UserService userService = new UserService();
     private GymLogger logger = GymLogger.getInstance();
+    private MerchService merchService = new MerchService();
+
 
     public void display() {
         System.out.println("=============================");
@@ -91,14 +94,16 @@ public class MainMenu {
             new AdminMenu(scanner, (Admin) user).display();
         } else if (user instanceof Trainer) {
             MembershipMenu membershipMenu = new MembershipMenu(scanner, user);
-            WorkoutClassMenu workoutClassMenu = new WorkoutClassMenu(scanner);
-            MerchMenu merchMenu = new MerchMenu(scanner);
+            WorkoutClassService workoutClassService = new WorkoutClassService();
+            WorkoutClassMenu workoutClassMenu = new WorkoutClassMenu(scanner, (Trainer) user, workoutClassService);
+            MerchMenu merchMenu = new MerchMenu(merchService);
 
             new TrainerMenu(scanner, (Trainer) user, membershipMenu, workoutClassMenu, merchMenu).display();
         } else if (user instanceof Member) {
             MembershipMenu membershipMenu = new MembershipMenu(scanner, user);
-            WorkoutClassMenu workoutClassMenu = new WorkoutClassMenu(scanner);
-            MerchMenu merchMenu = new MerchMenu(scanner);
+            WorkoutClassService workoutClassService = new WorkoutClassService();
+            WorkoutClassMenu workoutClassMenu = new WorkoutClassMenu(scanner, (Trainer) user, workoutClassService);
+            MerchMenu merchMenu = new MerchMenu(merchService);
             
             new MemberMenu(scanner, (Member) user, membershipMenu, workoutClassMenu, merchMenu).display();
         }
