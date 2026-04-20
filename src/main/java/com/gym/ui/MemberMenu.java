@@ -3,8 +3,6 @@ package com.gym.ui;
 import com.gym.model.Member;
 import java.util.Scanner;
 
-import com.gym.ui.WorkoutClassMenu;
-import com.gym.ui.MembershipMenu;
 
 public class MemberMenu {
 
