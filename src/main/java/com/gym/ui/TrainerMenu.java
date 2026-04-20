@@ -3,7 +3,6 @@ package com.gym.ui;
 import com.gym.model.Trainer;
 import java.util.Scanner;
 
-import com.gym.ui.MerchMenu;
 
 
 public class TrainerMenu {

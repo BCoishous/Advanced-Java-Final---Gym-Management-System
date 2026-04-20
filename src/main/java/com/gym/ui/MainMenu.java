@@ -1,6 +1,5 @@
 package com.gym.ui;
 
-import com.gym.dao.WorkoutClassDAO;
 import com.gym.model.Admin;
 import com.gym.model.Member;
 import com.gym.model.Trainer;
